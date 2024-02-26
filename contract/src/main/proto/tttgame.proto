@@ -27,6 +27,7 @@ enum PlayResult {
 	WRONG_TURN = 3;
 	GAME_FINISHED = 4;
 	SUCCESS = 5;
+	TRANSPOSE = 6;
 };
 
 // TODO request and response
@@ -59,6 +60,15 @@ message WaitForWinnerResponse {
 	int32 result = 1;
 }
 
+
+message transposeRequest {
+
+}
+
+message transposeResponse {
+	string transposed = 1;
+}
+
 // service
 
 service TTT {
@@ -66,4 +76,5 @@ service TTT {
 	rpc Play(PlayRequest) returns (PlayResponse);
 	rpc CheckWinner(CheckWinnerRequest) returns (CheckWinnerResponse);
 	rpc waitForWinner(WaitForWinnerRequest) returns (WaitForWinnerResponse);
+	rpc transpose(transposeRequest) returns (transposeResponse);
 }

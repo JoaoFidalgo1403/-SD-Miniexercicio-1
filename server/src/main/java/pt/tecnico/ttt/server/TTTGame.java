@@ -118,5 +118,17 @@ public class TTTGame {
 			{'7', '8', '9'}
 		};
 	}
+
+	public String transpose() {
+		int row, col;
+		char[][] new_board = new char[3][3];
+		for(row = 0; row <= 2; row ++){
+			for(col = 0; col <= 2; col++) {
+				new_board[row][col] = board[col][row];
+			}
+		}
+		board = new_board;
+		return this.toString();
+	}
 	
 }

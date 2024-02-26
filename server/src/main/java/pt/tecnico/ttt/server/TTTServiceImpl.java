@@ -63,4 +63,15 @@ public class TTTServiceImpl extends TTTGrpc.TTTImplBase {
 		// Notify the client that the operation has been completed.
 		responseObserver.onCompleted();
 	}
+
+	@Override
+	public void transpose(transposeRequest request, StreamObserver<transposeResponse> responseObserver) {
+
+		transposeResponse response = transposeResponse.newBuilder().setTransposed(ttt.transpose()).build();
+
+		// Send a single response through the stream.
+		responseObserver.onNext(response);
+		// Notify the client that the operation has been completed.
+		responseObserver.onCompleted();
+	}
 }

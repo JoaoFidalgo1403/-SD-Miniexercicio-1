@@ -101,6 +101,13 @@ public class TTTClient {
 							continue;
 						}
 
+						else if(go == 10) {
+							play_res = PlayResult.TRANSPOSE;
+							transposeRequest request = transposeRequest.getDefaultInstance();
+							stub.transpose(request);
+							continue;
+						}
+
 						/* Get row index of board. */
 						row = --go / 3;
 						/* Get column index of board. */
